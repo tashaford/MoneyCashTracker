@@ -9,11 +9,13 @@ get '/transactions' do
   erb(:index)
 end
 
-get 'transaction/new' do
+get '/transaction/new' do
+  # @tags = Tag.all()
+  # @merchants = Merchant.all()
   erb(:new)
 end
 
-post 'transactions' do
+post '/transactions' do
   @transaction = Transaction.new(params)
   @transaction.save()
   erb(:create)
