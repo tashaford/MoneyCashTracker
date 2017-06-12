@@ -1,25 +1,27 @@
 require_relative '../db/sql_runner'
 require_relative './user'
-# require_relative './tag'
-# require_relative './merchant'
+require_relative './tag'
+require_relative './merchant'
 
 class Transaction
 
-  attr_reader :id, :amount, :description, :tag_id, :merchant_id, :user_id
+  attr_reader :id, :amount, :description, :tag_id, :merchant_id, :user_id, :date
 
   def initialize(options)
     @id = options['id'].to_i
-    @amount = options['amount'].to_i
+    @amount = options['amount'].to_f.round(2)
     @description = options['description']
-    @tag_id = options['tag_id']#.to_i
-    @merchant_id = options['merchant_id']#.to_i
+    @tag_id = options['tag_id'].to_i
+    @merchant_id = options['merchant_id'].to_i
     @user_id = options['user_id'].to_i
+    @date = options['date']
   end
 
   def save()
     sql ="INSERT INTO transactions
-    (amount, description, tag_id, merchant_id, user_id) VALUES
-    (#{amount}, '#{description}', '#{tag_id}', '#{merchant_id}', #{user_id}) RETURNING * ;"
+    (amount, description, tag_id, merchant_id, user_id, date)
+    VALUES
+    (#{@amount}, '#{@description}', #{@tag_id}, #{@merchant_id}, #{@user_id}, '#{@date}') RETURNING * ;"
     transaction = SqlRunner.run(sql)
     @id = transaction[0]['id'].to_i
   end
@@ -30,6 +32,19 @@ class Transaction
     result = transaction.map { |hash| Transaction.new(hash) }
     return result
   end
+
+  def self.find(id)
+    sql = "SELECT * FROM transactions WHERE id = #{id} ;"
+    transaction = SqlRunner.run(sql)
+    result = Transaction.new(transaction.first())
+    return result
+  end
+
+  def self.total()
+    sql = "SELECT SUM(amount) FROM transactions;"
+    return SqlRunner.run(sql)[0]["sum"].to_f()
+
+     end
 
   def user
     sql = "SELECT * FROM users WHERE id = #{user_id} ;"
@@ -47,6 +62,23 @@ class Transaction
     sql = "SELECT * FROM merchants WHERE id = #{merchant_id} ;"
     result = SqlRunner.run(sql)
     return User.new(result.first())
+  end
+
+  def update(options)
+    sql = "UPDATE transactions SET
+    amount = '#{options['amount']}',
+    description = '#{options['description']}',
+    tag_id = '#{options['tag_id']}',
+    merchant_id = '#{options['merchant_id']}',
+    user_id = '#{options['user_id']}'
+    date = '#{option['date']}'
+    WHERE id = '#{options['id']}' ;"
+    SqlRunner.run(sql)
+  end
+
+  def delete()
+    sql = "DELETE FROM transactions WHERE id = #{@id} ;"
+    SqlRunner.run(sql)
   end
 
 end

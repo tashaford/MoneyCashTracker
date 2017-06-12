@@ -1,0 +1,58 @@
+body {
+  background: #556bdb;
+  color: #000000;
+  font-family: Arial, Verdana, Helvetica ;
+}
+
+header {
+  font-size: 1.2em;
+  color: #bf262d;
+}
+
+h1 {
+  font-size: 2em;
+  color: #8c2126;
+
+}
+
+p {
+  
+ 
+}
+
+td {
+  border:1px red dashed;
+  display: inline-block;
+  font-size: 1.3em;
+  margin: 5px;
+  vertical-align: top;
+  width: 120px;
+}
+
+
+th {
+  color: #bf262d;
+  display: inline-block;
+  font-size: 1.3em;
+  margin: 5px;
+  width: 120px;
+}
+
+#user {
+  border:1px red dashed;
+  display: inline-block;
+  font-size: 2em;
+  margin: 5px;
+  width: 150px;
+  flex-direction: row;
+  text-align:  center;
+}
+
+#total {
+  font-size: 4em;
+  margin: 10px ;
+}
+
+#descrip {
+  width: 200px;
+}

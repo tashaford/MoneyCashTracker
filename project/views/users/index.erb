@@ -1,0 +1,14 @@
+<h1>Users</h1>
+
+<table>
+  <tr>
+    <th id="user">ID</th>
+    <th id="user">Name</th>
+  </tr>
+  <% for user in @users %>
+  <tr>
+    <th id="user"><%= user.id %></th>
+    <th id="user"><%= user.name%></th>
+  </tr>
+  <%end%>
+</table>

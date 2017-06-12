@@ -1,0 +1,14 @@
+<h1>Tag names</h1>
+
+<table>
+  <tr>
+    <th>Tag ID</th>
+    <th>Tag name</th>
+  </tr>
+  <% for tag in @tags %>
+  <tr>
+    <td><%= tag.id%></td>
+    <td><%= tag.name%></td>
+  </tr>
+  <% end %>
+</table>

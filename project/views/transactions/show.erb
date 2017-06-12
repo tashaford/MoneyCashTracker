@@ -1,0 +1,8 @@
+<h1>Individual transactions</h1>
+
+<p>Amount: <%='%.2f'% @transaction.amount %></p>
+<p>Description: <%=@transaction.description %></p>
+<p>Tag: <%=@transaction.tag.name %></p>
+<p>Merchant: <%=@transaction.merchant.name %></p>
+
+<p><a href="/transaction/<%=@transaction.id %>/edit">Edit transaction</a></p>
