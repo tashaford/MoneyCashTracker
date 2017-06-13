@@ -1,14 +1,15 @@
 <h1>Tag names</h1>
 
+<p><a href="/tag/new">Add new tag</a></p>
+
+
 <table>
   <tr>
-    <th>Tag ID</th>
     <th>Tag name</th>
   </tr>
   <% for tag in @tags %>
   <tr>
-    <td><%= tag.id%></td>
-    <td><%= tag.name%></td>
+    <td><a href="/tag/<%= tag.id%>"><%= tag.name%></a></td>
   </tr>
   <% end %>
 </table>

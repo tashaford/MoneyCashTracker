@@ -1,58 +1,195 @@
+a {
+  text-decoration: none;
+  font-size: 1.3em;
+  color: #25283D;
+  font-weight: 700;
+}
+
 body {
-  background: #556bdb;
-  color: #000000;
-  font-family: Arial, Verdana, Helvetica ;
+  color: #25283D;
+  font-family: 'Arvo', serif;
+  text-align: center;
+}
+
+form {
+  font-size: 2em;
+  margin-top: 40px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 auto;
 }
 
 header {
-  font-size: 1.2em;
-  color: #bf262d;
+  color: #3D5467;
+  height: 15em;
+  margin: 0;
+  text-align: right;
+}
+
+html {
+  background-image: url("./pexels-photo-218434.jpeg");
+  background-position: center;
+  background-size:cover;
+  position: center;        
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
 }
 
 h1 {
-  font-size: 2em;
-  color: #8c2126;
+  color: #82A3A1;
+  -webkit-text-stroke: 0.1px black;  font-size: 2em;
+  font-family: 'Carter One', cursive;
+}
 
+input {
+  height: 30px;
+  width: 200px;
+  font-size: 0.7em;
+  margin: 10px;
+}
+
+li {
+  margin: 20px;
+  list-style-image: url("");
 }
 
 p {
-  
- 
+  font-size: 2em;
+  margin: 5px;
+  margin: 0 auto;
 }
 
-td {
-  border:1px red dashed;
-  display: inline-block;
-  font-size: 1.3em;
-  margin: 5px;
-  vertical-align: top;
-  width: 120px;
+select {
+  height: 30px;
+  width: 150px;
+  font-size: 0.7em;
+  margin: 10px;
 }
 
+tbody {
+  position: relative;
+}
 
-th {
-  color: #bf262d;
+td, th {
+  background-position: center;
+  background-color: #A39BA8;
+  position: relative;
+  text-align: left;        
+  vertical-align: middle;
+  width: 150px;
+}
+
+table {
   display: inline-block;
   font-size: 1.3em;
-  margin: 5px;
-  width: 120px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+table#t01 {
+  font-size: 1.6em;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+#descrip {
+  width: 300px;
+  position: relative;        
+}
+
+#main_title {
+  font-size: 10em;
+  font-family: 'Gloria Hallelujah', cursive;
+  height: 10px;
+  margin: 10px;
+  text-align: center;
+  text-shadow: 5px 5px 5px #25283D;
+  -webkit-text-stroke: 1px black;
+}
+
+#total {
+  font-size: 2em;
+  margin: 10px ;
+  position: relative;        
 }
 
 #user {
   border:1px red dashed;
+  color: #25283D;
+  display: inline-block;
+  flex-direction: row;
+  font-size: 2em;
+  margin: 5px;
+  position: relative;        
+  text-align:  center;
+  width: 150px;
+}
+
+#user_title {
   display: inline-block;
   font-size: 2em;
   margin: 5px;
-  width: 150px;
-  flex-direction: row;
+  position: relative;        
   text-align:  center;
+  width: 150px;
 }
 
-#total {
-  font-size: 4em;
-  margin: 10px ;
+#welc {
+  font-size: 5em;
+  text-shadow: 4px 4px 4px #575C55;
+  color: #82A3A1;
+  -webkit-text-stroke: 1px black;
+
 }
 
-#descrip {
-  width: 200px;
+#welc_p {
+  font-size: 3em;
+  text-shadow: 4px 4px 4px #575C55;
+  color: #82A3A1;
+  -webkit-text-stroke: 0.7px black;
+  font-weight: 700;
+  font-family: 'Carter One', cursive;
+
+}
+
+#top {
+  font-size: 2em;
+  padding-right: 20px;
+  padding-left:  20px;
+  text-shadow: 2px 2px 2px #8AA29E;
+  font-weight: 700;
+  font-family: 'Carter One', cursive;
+}
+
+#bottom {
+font-size: 2em;
+font-weight: 600;
+padding-right: 15px;
+padding-left: 15px;
+color: #82A3A1;
+-webkit-text-stroke: 0.3px black;
+text-shadow: 4px 4px 4px #575C55;
+font-family: 'Carter One', cursive;
+}
+
+#button {
+  height: 30px;
+  width: 150px;
+  font-size: 0.7em;
+  padding: 10px;
+}
+
+#label_button {
+  width: 170px;
+}
+
+#new {
+  background-color: #A39BA8;
+  width: 600px;
+  padding: 30px;
 }

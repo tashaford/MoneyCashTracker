@@ -6,3 +6,8 @@
 <p>Merchant: <%=@transaction.merchant.name %></p>
 
 <p><a href="/transaction/<%=@transaction.id %>/edit">Edit transaction</a></p>
+
+<form action="/transaction/<%= @transaction.id %>/delete" method="post">
+  <input type="submit" value="Delete transaction">
+</form>
+<hr />

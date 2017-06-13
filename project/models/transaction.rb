@@ -8,13 +8,13 @@ class Transaction
   attr_reader :id, :amount, :description, :tag_id, :merchant_id, :user_id, :date
 
   def initialize(options)
-    @id = options['id'].to_i
-    @amount = options['amount'].to_f.round(2)
-    @description = options['description']
-    @tag_id = options['tag_id'].to_i
-    @merchant_id = options['merchant_id'].to_i
-    @user_id = options['user_id'].to_i
-    @date = options['date']
+    @id           = options['id'].to_i
+    @amount       = options['amount'].to_f.round(2)
+    @description  = options['description']
+    @tag_id       = options['tag_id'].to_i
+    @merchant_id  = options['merchant_id'].to_i
+    @user_id      = options['user_id'].to_i
+    @date         = options['date']
   end
 
   def save()
@@ -23,7 +23,7 @@ class Transaction
     VALUES
     (#{@amount}, '#{@description}', #{@tag_id}, #{@merchant_id}, #{@user_id}, '#{@date}') RETURNING * ;"
     transaction = SqlRunner.run(sql)
-    @id = transaction[0]['id'].to_i
+    @id = transaction.first()['id'].to_i
   end
 
   def self.all()
@@ -42,9 +42,33 @@ class Transaction
 
   def self.total()
     sql = "SELECT SUM(amount) FROM transactions;"
-    return SqlRunner.run(sql)[0]["sum"].to_f()
+    result = SqlRunner.run(sql)[0]["sum"]
+    if result == nil
+      return 0
+    else
+      return '%.2f'% result.to_f()
+    end
+  end
 
-     end
+  def self.total_month(month)
+    sql = "SELECT SUM(amount) FROM transactions WHERE EXTRACT(MONTH FROM date) = #{month};"
+    result = SqlRunner.run(sql)[0]["sum"]
+    if result == nil
+      return 0
+    else
+      return '%.2f'% result.to_f()
+    end
+  end
+
+  def self.total_tag(tag_id)
+    sql = "SELECT SUM(amount) FROM transactions WHERE tag_id = #{tag_id};"
+    result = SqlRunner.run(sql)[0]["sum"]
+    if result == nil
+      return 0
+    else
+      return '%.2f'% result.to_f()
+    end
+  end
 
   def user
     sql = "SELECT * FROM users WHERE id = #{user_id} ;"
@@ -55,30 +79,39 @@ class Transaction
   def tag
     sql = "SELECT * FROM tags WHERE id = #{tag_id} ;"
     result = SqlRunner.run(sql)
-    return User.new(result.first())
+    return Tag.new(result.first())
   end
 
   def merchant
     sql = "SELECT * FROM merchants WHERE id = #{merchant_id} ;"
     result = SqlRunner.run(sql)
-    return User.new(result.first())
+    return Merchant.new(result.first())
   end
 
   def update(options)
     sql = "UPDATE transactions SET
-    amount = '#{options['amount']}',
-    description = '#{options['description']}',
-    tag_id = '#{options['tag_id']}',
-    merchant_id = '#{options['merchant_id']}',
-    user_id = '#{options['user_id']}'
-    date = '#{option['date']}'
-    WHERE id = '#{options['id']}' ;"
+    amount        = '#{options['amount']}',
+    description   = '#{options['description']}',
+    tag_id        = '#{options['tag_id']}',
+    merchant_id   = '#{options['merchant_id']}',
+    user_id       = '#{options['user_id']}',
+    date          = '#{options['date']}'
+    WHERE id      = '#{options['id']}' ;"
     SqlRunner.run(sql)
   end
 
   def delete()
     sql = "DELETE FROM transactions WHERE id = #{@id} ;"
     SqlRunner.run(sql)
+  end
+
+  def budget(amount)
+    budget = 200
+    if budget < amount
+      puts "You are over budget this month!"
+    elsif budget > amount
+      puts "You are underbudget, good job!"
+    end
   end
 
 end

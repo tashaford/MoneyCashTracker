@@ -4,21 +4,32 @@
   <meta charset="UTF-8">
   <title>Bucker</title>
   <link rel="stylesheet" href="/styles.css">
- 
+  <link href="https://fonts.googleapis.com/css?family=Arvo:400,400i,700|Carter+One|Gloria+Hallelujah" rel="stylesheet">
 </head>
 <body>
   <header>
+  <p id="main_title">BUCKER</p>
     <nav>
       <ul>
-        <li><a href="/transactions">All transactions</a></li>
-        <li><a href="/transaction/total">Total spending</a></li>
-        <li><a href="/users">All users</a></li>
+        <a href="/" id="top">Home Page</a>
+        <a href="/transactions" id="top">All transactions</a>
+        <a href="/transaction/total" id="top">Total spending</a>
       </ul>
     </nav>
   </header>
   <main>
     <%= yield %>
   </main>
-
+  <br>
+  <br>
+  <footer>
+    <nav>
+      <ul>
+        <a href="/users" id="bottom">All users</a>
+        <a href="/tags" id="bottom">All tags</a>
+        <a href="/merchants" id="bottom">All merchants</a>
+      </ul>
+    </nav>
+  </footer>
 </body>
 </html>
