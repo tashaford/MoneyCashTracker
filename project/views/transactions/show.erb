@@ -19,10 +19,11 @@
   </tr>
 </table>
 
+<br><br><br>
 
-<p><a href="/transaction/<%=@transaction.id %>/edit">Edit transaction</a></p>
-
+<p><a class="edit" href="/transaction/<%=@transaction.id %>/edit">Edit transaction</a></p>
+<br><br>
 <form action="/transaction/<%= @transaction.id %>/delete" method="post">
-  <input type="submit" value="Delete transaction">
+  <input class="button" type="submit" value="Delete transaction">
 </form>
 <hr />

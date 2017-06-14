@@ -188,11 +188,12 @@ font-family: 'Carter One', cursive;
 .edit {
   background-color: #A39BA8;
   font-size: 1em;
+  padding: 10px ;
 }
 
 .button {
   height: 60px;
-  width: 200px;
+  width: 250px;
   font-size: 0.8em;
   background-color: transparent;
   color: #25283D;
@@ -207,4 +208,13 @@ font-family: 'Carter One', cursive;
   width: 100%;
   padding: 10px;
   margin: 10px;
+}
+
+.indiv th{
+  padding: 10px;
+}
+
+.display{
+  font-size: 3em;
+  font-weight: 600;
 }
