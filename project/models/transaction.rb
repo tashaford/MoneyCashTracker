@@ -3,6 +3,7 @@ require_relative './user'
 require_relative './tag'
 require_relative './merchant'
 
+
 class Transaction
 
   attr_reader :id, :amount, :description, :tag_id, :merchant_id, :user_id, :date

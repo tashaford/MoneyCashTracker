@@ -1,9 +1,24 @@
 <h1>Individual transactions</h1>
 
-<p>Amount: <%='%.2f'% @transaction.amount %></p>
-<p>Description: <%=@transaction.description %></p>
-<p>Tag: <%=@transaction.tag.name %></p>
-<p>Merchant: <%=@transaction.merchant.name %></p>
+<table class="indiv">
+  <tr>
+    <th>Amount: </th>
+    <td><%='%.2f'% @transaction.amount %></td>
+  </tr>
+  <tr>
+    <th>Description: </th>
+    <td><%=@transaction.description %></td>
+  </tr>
+  <tr>
+    <th>Tag: </th>
+    <td><%=@transaction.tag.name %></td>
+  </tr>
+  <tr>
+    <th>Merchant: </th>
+    <td><%=@transaction.merchant.name %></td>
+  </tr>
+</table>
+
 
 <p><a href="/transaction/<%=@transaction.id %>/edit">Edit transaction</a></p>
 

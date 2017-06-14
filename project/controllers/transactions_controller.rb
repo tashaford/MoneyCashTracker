@@ -3,6 +3,7 @@ require 'sinatra/contrib/all'
 require 'pry-byebug'
 
 require_relative '../models/transaction'
+require_relative '../models/months'
 
 get '/transactions' do
   @transactions = Transaction.all()
@@ -23,6 +24,7 @@ post '/transactions' do
 end
 
 get '/transaction/total' do
+  @months = Months.all()
   @transactions = Transaction.all()
   @amount = Transaction.total()
   @tags = Tag.all()
