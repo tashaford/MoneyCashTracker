@@ -71,24 +71,6 @@ class Transaction
     end
   end
 
-  def user
-    sql = "SELECT * FROM users WHERE id = #{user_id} ;"
-    result = SqlRunner.run(sql)
-    return User.new(result.first())
-  end
-
-  def tag
-    sql = "SELECT * FROM tags WHERE id = #{tag_id} ;"
-    result = SqlRunner.run(sql)
-    return Tag.new(result.first())
-  end
-
-  def merchant
-    sql = "SELECT * FROM merchants WHERE id = #{merchant_id} ;"
-    result = SqlRunner.run(sql)
-    return Merchant.new(result.first())
-  end
-
   def update(options)
     sql = "UPDATE transactions SET
     amount        = '#{options['amount']}',
@@ -104,15 +86,6 @@ class Transaction
   def delete()
     sql = "DELETE FROM transactions WHERE id = #{@id} ;"
     SqlRunner.run(sql)
-  end
-
-  def budget(amount)
-    budget = 200
-    if budget < amount
-      puts "You are over budget this month!"
-    elsif budget > amount
-      puts "You are underbudget, good job!"
-    end
   end
 
 end
