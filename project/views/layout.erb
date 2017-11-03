@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <title>Bucker</title>
   <link rel="stylesheet" href="/styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Arvo:400,400i,700|Carter+One|Gloria+Hallelujah" rel="stylesheet">
-</head>
+  <link href="https://fonts.googleapis.com/css?family=Raleway|Tillana" rel="stylesheet">
+        </head>
 <body>
   <header>
-  <p id="main_title">BUCKER</p>
-    <nav>
+    <nav id="nav_back">
       <ul>
-        <a href="/" id="top">Home Page</a>
-        <a href="/transactions" id="top">All transactions</a>
-        <a href="/transaction/total" id="top">Total spending</a>
+        <a href="/" id="nav">Home Page</a>
+        <a href="/transactions" id="nav">All transactions</a>
+        <a href="/transaction/total" id="nav">Total spending</a>
       </ul>
     </nav>
+    <h1 id="main_title">BUCKER</h1>
   </header>
   <main>
     <%= yield %>
@@ -23,11 +23,11 @@
   <br>
   <br>
   <footer>
-    <nav>
+    <nav id="nav_back">
       <ul>
-        <a href="/users" id="bottom">All users</a>
-        <a href="/tags" id="bottom">All tags</a>
-        <a href="/merchants" id="bottom">All merchants</a>
+        <a href="/users" id="nav">Users</a>
+        <a href="/tags" id="nav">Tags</a>
+        <a href="/merchants" id="nav">Merchants</a>
       </ul>
     </nav>
   </footer>
